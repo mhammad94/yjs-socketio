@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --config nodemon.json src/app.ts"
+    "start": "nodemon --config nodemon.json src/app.ts"
   },
   "author": "",
   "license": "ISC",
