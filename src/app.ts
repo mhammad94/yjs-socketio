@@ -8,6 +8,7 @@ import { YSocketIO } from 'y-socket.io/dist/server'
 
 
 const port = config.get<number>("port");
+
 const host = config.get<string>("host");
 const corsOrigin = config.get<string>("corsOrigin");
 
