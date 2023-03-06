@@ -7,9 +7,9 @@ import logger from './utils/logger';
 import { YSocketIO } from 'y-socket.io/dist/server'
 
 
-const port = config.get<number>("port");
+const port = process.env.PORT || '4000';
 
-const host = config.get<string>("host");
+const host = process.env.HOST;
 const corsOrigin = config.get<string>("corsOrigin");
 
 const app = express();
@@ -26,7 +26,7 @@ app.get("/", (_, res)  => {
     res.send("Server is up");
 })
 
-httpServer.listen(port, host, () => {
+httpServer.listen(port, () => {
     logger.info("Server is listening");
-    logger.info(`Server is listening at ${port} and ${host}`);
+    logger.info(`Server is listening at ${port}`);
 })

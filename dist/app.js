@@ -9,8 +9,8 @@ var socket_io_1 = require("socket.io");
 var config_1 = __importDefault(require("config"));
 var logger_1 = __importDefault(require("./utils/logger"));
 var server_1 = require("y-socket.io/dist/server");
-var port = config_1["default"].get("port");
-var host = config_1["default"].get("host");
+var port = process.env.PORT || '4000';
+var host = process.env.HOST;
 var corsOrigin = config_1["default"].get("corsOrigin");
 var app = (0, express_1["default"])();
 var httpServer = (0, http_1.createServer)(app);
@@ -25,7 +25,7 @@ ysocketio.initialize();
 app.get("/", function (_, res) {
     res.send("Server is up");
 });
-httpServer.listen(port, host, function () {
+httpServer.listen(port, function () {
     logger_1["default"].info("Server is listening");
-    logger_1["default"].info("Server is listening at ".concat(port, " and ").concat(host));
+    logger_1["default"].info("Server is listening at ".concat(port));
 });
